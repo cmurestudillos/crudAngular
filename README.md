@@ -1,4 +1,4 @@
-# crudAngular
+# CRUD - Angular
 Ejemplo de CRUD realizado en Angular, utilizando de BackEnd la API Rest de Firebase.
 
 ## Instalar Dependencias
