@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HeroeModel } from '../models/heroe.model';
 import { map, delay } from 'rxjs/operators';
-import  {dataBaseUrl} from '../conf/endpoint';
+import  dataBaseUrl from '../conf/config';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,6 @@ export class HeroesService {
 
   // EndPoint del Firebase de nuestra coleccion
   private url = dataBaseUrl.endpoint;
-  ;
 
   constructor(private http: HttpClient) { }
 
