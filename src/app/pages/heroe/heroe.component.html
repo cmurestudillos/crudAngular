@@ -1,9 +1,10 @@
-<h1>Heroe <small>Nombre del heroe</small> </h1>
+<h1 *ngIf="heroe.nombre">Heroe: <small>{{heroe.nombre}}</small> </h1>
+<h1 *ngIf="!heroe.nombre">Heroe: <small>Nombre del heroe</small> </h1>
 <hr>
 
 <div class="row text-right">
   <div class="col">
-    <button class="btn btn-outline-primary" routerLink="/heroes"><i class="fa fa-arrow-left"></i> Volver </button>
+    <button class="btn btn-outline-primary" routerLink="/heroes" title="Volver"><i class="fa fa-arrow-left"></i> Volver </button>
   </div>
 </div>
 
@@ -30,12 +31,12 @@
       <div class="form-group">
         <label>Estado</label>
         <br>
-        <button *ngIf="heroe.estado" (click)="heroe.estado = false" class="btn btn-outline-success w-25" type="button"><i class="fa fa-thumbs-up"></i> Vivo </button>
-        <button *ngIf="!heroe.estado" (click)="heroe.estado = true" class="btn btn-outline-danger w-25" type="button"><i class="fa fa-thumbs-down"></i> Muerto </button>
+        <button *ngIf="heroe.estado" (click)="heroe.estado = false" class="btn btn-outline-success w-25" type="button" title="Vivo"><i class="fa fa-thumbs-up"></i> Vivo </button>
+        <button *ngIf="!heroe.estado" (click)="heroe.estado = true" class="btn btn-outline-danger w-25" type="button" title="Muerto"><i class="fa fa-thumbs-down"></i> Muerto </button>
       </div>
       <hr>
       <div class="form-group text-center">
-        <button type="submit" class="btn btn-outline-primary w-25"><i class="fa fa-save"></i> Guardar </button>
+        <button type="submit" class="btn btn-outline-primary w-25" title="Guardar"><i class="fa fa-save"></i> Guardar </button>
       </div>
     </form>
   </div>

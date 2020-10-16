@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 // Importamos la interfaz de Heroe
 import { HeroeModel } from 'src/app/models/heroe.model';
 import { NgForm } from '@angular/forms';
@@ -18,11 +18,11 @@ export class HeroeComponent implements OnInit {
 
   heroe = new HeroeModel();
 
-  constructor(private heroesService: HeroesService, private route: ActivatedRoute) { }
+  constructor(private heroesService: HeroesService, private _route: ActivatedRoute, private _router: Router) { }
 
   ngOnInit() {
     // Obtenemos el ID de la url para luego llamar a nuestro servicio
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this._route.snapshot.paramMap.get('id');
 
     if(id !== 'nuevo'){
       this.heroesService.getHeroeById(id)
@@ -66,6 +66,7 @@ export class HeroeComponent implements OnInit {
         text: 'Se actualizo correctamente',
         icon: 'success'
       });
+      this._router.navigate(['/heroes']);
     });
 
   }

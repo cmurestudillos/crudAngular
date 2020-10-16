@@ -3,14 +3,13 @@
 
 <div class="row">
     <div class="col text-right">
-        <button class="btn btn-outline-primary" routerLink="/heroe/nuevo"><i class="fa fa-plus"></i> Nuevo </button>
+        <button class="btn btn-outline-primary" routerLink="/heroe/nuevo" title="Alta"><i class="fa fa-plus"></i> Nuevo </button>
     </div>
 </div>
 
 <table *ngIf="!cargando && heroes.length > 0" class="table mt-3">
-    <thead class="thead-dark">
+    <thead class="bg-custom">
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Nombre</th>
             <th scope="col">Poder</th>
             <th scope="col">Estado</th>
@@ -19,7 +18,6 @@
     </thead>
     <tbody>
         <tr *ngFor="let heroe of heroes; let ind = index">
-            <th scope="row">{{ ind + 1 }}</th>
             <td>{{ heroe.nombre}}</td>
             <td>{{ heroe.poder}}</td>
             <td>
@@ -27,14 +25,14 @@
                 <i *ngIf="!heroe.estado" class="fa fa-thumbs-down text-danger fa-2x" title="Muerto"></i>
             </td>
             <td class="text-center">
-                <button class="btn btn-outline-warning mr-1 w-25" [routerLink]="['/heroe', heroe.id]"><i class="fa fa-pen" title="Editar"></i></button>
-                <button class="btn btn-outline-danger w-25" (click)="borrarHeroe(heroe, ind)"><i class="fa fa-trash" title="Eliminar"></i></button>
+                <button class="btn btn-outline-warning mr-1" [routerLink]="['/heroe', heroe.id]" title="Editar"><i class="fa fa-pen"></i></button>
+                <button class="btn btn-outline-danger" (click)="borrarHeroe(heroe, ind)" title="Eliminar"><i class="fa fa-trash"></i></button>
             </td>
         </tr>
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="5" class="bg-dark"><span>Copyright© - Carlos Mur</span></td>
+            <td colspan="5" class="bg-custom"><span><i>Copyright© - Carlos Mur</i></span></td>
         </tr>
     </tfoot>
 </table>
